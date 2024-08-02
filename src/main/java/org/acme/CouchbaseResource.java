@@ -8,16 +8,18 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 
+import java.time.Duration;
+
 @Path("/couchbase")
-public class TestCouchbaseResource {
+public class CouchbaseResource {
     @Inject
     Cluster cluster;
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)
-    @Path("/test")
     public String run() {
-        // Get a reference to a particular Couchbase bucket and its default collection
+        // Assumes you have a Couchbase server running, with a bucket named "default"
+        // Gets a reference to a particular Couchbase bucket and its default collection
         var bucket = cluster.bucket("default");
         var collection = bucket.defaultCollection() ;
 

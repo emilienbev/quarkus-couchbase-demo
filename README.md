@@ -4,6 +4,17 @@ This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
 If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
 
+## Running the tests
+The current minimal test assumes you have a Couchbase server running, with a bucket named "default".
+
+You can deploy a cluster locally with Docker using:
+```shell script
+docker run -d --name MyCouchbaseCluster -p 8091-8097:8091-8097 -p 11210:11210 couchbase:latest
+```
+and then heading to http://localhost:8091/ui/index.html to complete the initial setup.
+
+Modify the parameters in ```application.properties``` to match your connection string, username and password.
+
 ## Running the application in dev mode
 
 You can run your application in dev mode that enables live coding using:
