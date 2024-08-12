@@ -9,11 +9,19 @@ import static org.hamcrest.CoreMatchers.is;
 @QuarkusTest
 public class CouchbaseResourceTest {
     @Test
-    void testHelloEndpoint() {
+    void testTestEndpoint() {
         given()
-                .when().get("/couchbase")
+                .when().get("/couchbase/test")
                 .then()
                 .statusCode(200)
                 .body(is("Success!"));
+    }
+    @Test
+    void testKvEndpoint() {
+        given()
+                .when().get("/couchbase/kv")
+                .then()
+                .statusCode(200)
+                .body(is("Got doc {\"foo\":\"bar\"}"));
     }
 }
